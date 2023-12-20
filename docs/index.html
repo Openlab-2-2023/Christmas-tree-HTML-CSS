@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Arial', sans-serif;
+      background-color: #f8f8f8;
+	  padding-top: 100px; /* Adjusted padding-top to match the header's height */
+    }
+
+    header {
+      background-color: #333;
+      color: #fff;
+      padding: 1em;
+      text-align: center;
+      position: fixed;
+      width: 100%;
+      top: 0;
+	  
+    }
+
+    h1 {
+      margin: 0;
+    }
+
+    .container {
+  position: relative;
+  width: 500px;
+  height: 500px;
+  margin-top: 8px;
+  margin: auto;
+  background: #0b1a5e;
+  border-radius: 120px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Added box shadow */
+  transition: box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out; /* Added transition for smooth hover effect */
+  z-index: 1;
+}
+
+.container:hover {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Increased shadow on hover */
+  transform: scale(1.05); /* Added scale transformation on hover */
+}
+
+.additional-examples {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.box-container {
+  display: flex;
+  justify-content: center;
+}
+
+.box {
+  display: inline-block;
+  width: 100px;
+  height: 100px;
+  background-color: #3498db;
+  margin: 10px;
+  border-radius: 10px;
+  line-height: 100px;
+  font-size: 20px;
+  color: #fff;
+  text-align: center;
+  text-decoration: none;
+}
+
+.box:hover {
+  background-color: #2980b9;
+}
+
+    .separator {
+      border-top: 2px solid #fff;
+      margin-top: 10px; /* Reduced margin-top */
+      margin-bottom: 10px; /* Reduced margin-bottom */
+    }
+
+    .tree {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      left: 13%;
+      top: 5%;
+    }
+
+    .tree-triangle3 {
+      position: absolute;
+      width: 66%;
+      height: 36%;
+      bottom: 20%;
+      left: 3.5%;
+      background: #034f33;
+      clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+    }
+
+    .tree-triangle2 {
+      position: absolute;
+      width: 53%;
+      height: 33%;
+      bottom: 35%;
+      left: 10%;
+      clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+      background: #046944;
+      z-index: 2;
+    }
+
+    .tree-triangle1 {
+      position: absolute;
+      width: 42%;
+      height: 25%;
+      bottom: 50%;
+      left: 15.5%;
+      background: #038052;
+      clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+      z-index: 3;
+    }
+
+    .trunk {
+      position: absolute;
+      width: 10%;
+      height: 16%;
+      background: #66503e;
+      z-index: 1;
+      bottom: 5%;
+      left: 32%;
+    }
+
+    .ornament {
+      position: absolute;
+      width: 10%;
+      height: 10%;
+      border-radius: 50%;
+      box-shadow: 0 0 3px #033b26;
+      z-index: 4;
+    }
+
+    .shine {
+      position: absolute;
+      width: 55%;
+      height: 55%;
+      top: 10%;
+      right: 11%;
+      border-radius: 50%;
+      background: white;
+      filter: opacity(60%);
+    }
+
+    .or1 { left: 28%; top: 34%; background: #0742d9; }
+    .or2 { left: 40%; top: 45%; background: #c91212; }
+    .or3 { left: 20%; top: 49%; background: #dbb700; }
+    .or4 { left: 34%; top: 62%; background: #0742d9; }
+    .or5 { left: 50%; top: 69%; background: #dbb700; }
+    .or6 { left: 15%; top: 68%; background: #c91212; }
+
+    .star {
+      position: absolute;
+      width: 20%;
+      height: 20%;
+      background: #ffe380;
+      clip-path: polygon(
+        50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%,
+        50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%
+      );
+      left: 26.5%;
+      top: 11%;
+      z-index: 4;
+    }
+
+    .star-highlight {
+      position: absolute;
+      width: 20%;
+      height: 20%;
+      background: #fff1bf;
+      clip-path: polygon(
+        50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%,
+        50% 70%, 50% 70%, 50% 60%, 50% 46%, 50% 36%
+      );
+      left: 26.5%;
+      top: 11%;
+      z-index: 4;
+    }
+
+    .star-light {
+      position: absolute;
+      width: 20%;
+      height: 20%;
+      background: #fff1bf;
+      filter: opacity(0.7);
+      border-radius: 50%;
+      left: 26.5%;
+      top: 11%;
+      z-index: 3;
+      animation: star 3s ease-in-out infinite;
+    }
+
+    @keyframes star {
+      100% {
+        transform: scale(0.5);
+      }
+      50% {
+        transform: scale(1.1);
+      }
+      0% {
+        transform: scale(0.5);
+      }
+    }
+
+    /* Description styles */
+    .description {
+      text-align: center;
+      margin: 20px;
+    }
+
+    p {
+      margin: 0;
+    }
+  </style>
+  <title>HTML + CSS Vianočný stromček</title>
+</head>
+<body>
+  <header>
+    <h1>HTML + CSS Vianočný stromček</h1>
+  </header>
+
+  <!-- Part 1: Prepare Container -->
+  <div class="container"></div>
+  <div class="description">
+    <p>V časti 1 sme vytvorili kontajner pre náš vianočný stromček. Kontajner vytvára pozadie pre našu sviatočnú scénu.</p>
+  </div>
+
+  <!-- Separator - Part 2 -->
+  <div class="separator"></div>
+
+  <!-- Part 2: Prepare Tree -->
+  <div class="container">
+    <div class="tree">
+      <div class="tree-triangle1"></div>
+      <div class="tree-triangle2"></div>
+      <div class="tree-triangle3"></div>
+      <div class="trunk"></div>
+    </div>
+  </div>
+  <div class="description">
+    <p>V časti 2 tvarujeme náš vianočný stromček. Vytvorili sme tri trojuholníkové vrstvy, ktoré tvoria korunu stromu, a pridali sme kmeň stromu.</p>
+  </div>
+
+  <!-- Separator - Part 3 -->
+  <div class="separator"></div>
+
+  <!-- Part 3: Add Ornaments -->
+  <div class="container">
+    <div class="tree">
+      <div class="tree-triangle1"></div>
+      <div class="tree-triangle2"></div>
+      <div class="tree-triangle3"></div>
+	  <div class="trunk"></div>
+      <div class="ornament or1"><div class="shine"></div></div>
+      <div class="ornament or2"><div class="shine"></div></div>
+      <div class="ornament or3"><div class="shine"></div></div>
+      <div class="ornament or4"><div class="shine"></div></div>
+      <div class="ornament or5"><div class="shine"></div></div>
+      <div class="ornament or6"><div class="shine"></div></div>
+    </div>
+  </div>
+  <div class="description">
+    <p>V časti 3 sme pridali ozdoby na náš stromček. Každá ozdoba má svietiaci efekt, ktorý pridáva lesk našej sviatočnej výzdobe.</p>
+  </div>
+
+  <!-- Separator - Part 4 -->
+  <div class="separator"></div>
+
+  <!-- Part 4: Add Star on Top -->
+  <div class="container">
+    <div class="tree">
+      <div class="tree-triangle1"></div>
+      <div class="tree-triangle2"></div>
+      <div class="tree-triangle3"></div>
+	  <div class="trunk"></div>
+      <div class="ornament or1"><div class="shine"></div></div>
+      <div class="ornament or2"><div class="shine"></div></div>
+      <div class="ornament or3"><div class="shine"></div></div>
+      <div class="ornament or4"><div class="shine"></div></div>
+      <div class="ornament or5"><div class="shine"></div></div>
+      <div class="ornament or6"><div class="shine"></div></div>
+      <div class="star-light"></div>
+      <div class="star"></div>
+      <div class="star-highlight"></div>
+    </div>
+  </div>
+  <div class="description">
+    <p>V časti 4 sme pridali hviezdu na vrchol stromčeka. Hviezda je osvetlená, čo dodáva našej scéne ešte viac sviatočný nádych.</p>
+  </div>
+  
+  <!-- Additional Examples Section -->
+  <section class="additional-examples">
+    <h2 style="text-align: center;">Ďalšie príklady</h2>
+
+    <!-- Box Container -->
+  <div class="box-container">
+    <!-- Example Boxes -->
+    <a href="example1.html" class="box">1</a>
+    <a href="example2.html" class="box">2</a>
+    <a href="example3.html" class="box">3</a>
+  </div>
+
+  </section>
+
+  <!-- Rest of your HTML content goes here -->
+  
+</body>
+</html>
